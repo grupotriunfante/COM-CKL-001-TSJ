@@ -302,9 +302,9 @@
   window.onload = function () {
     const dataInput = document.getElementById("data");
     const hoje = new Date().toISOString().split("T")[0];
-    dataInput.value = today;
-    dataInput.min = today;
-    dataInput.max = today;
+    dataInput.value = hoje;
+    dataInput.min = hoje;
+    dataInput.max = hoje;
     dataInput.readOnly = true; // impede que o usuário digite manualmente
   };
 </script>
