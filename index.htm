@@ -301,13 +301,23 @@
 <script>
   window.onload = function () {
     const dataInput = document.getElementById("data");
-    const hoje = new Date().toISOString().split("T")[0];
+
+    // Ajusta a hora para UTC-3 (Brasília)
+    const agora = new Date();
+    const fusoBrasilia = -3 * 60; // em minutos
+    const offsetLocal = agora.getTimezoneOffset(); // offset local em minutos
+    const diffMin = offsetLocal - fusoBrasilia; // diferença para Brasília
+    const horaBrasilia = new Date(agora.getTime() + diffMin * 60000);
+
+    const hoje = horaBrasilia.toISOString().split("T")[0];
+
     dataInput.value = hoje;
     dataInput.min = hoje;
     dataInput.max = hoje;
     dataInput.readOnly = true; // impede que o usuário digite manualmente
   };
 </script>
+
 
 
 
